@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { isValidElement } from 'react';
 
 interface VideoCardProps {
   title: string;
@@ -9,7 +9,7 @@ interface VideoCardProps {
   onWatchTry?: () => void;
   duration?: string;
   icon?: React.ReactNode;
-  thumbnail?: React.ReactNode;
+  thumbnail?: React.ReactElement;
   buttonClassName?: string;
 }
 
@@ -18,9 +18,9 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, subcategory, coinReward, o
     <div className="flex items-center bg-black border-2 border-gray-700 rounded-xl shadow-md p-4 hover:border-yellow-400 hover:ring hover:ring-yellow-500/20 transition cursor-pointer w-full max-w-2xl mx-auto hover:scale-[1.005] transition-transform" onClick={onWatchTry}>
       {/* Thumbnail */}
       <div className="mr-4 flex flex-col items-center">
-        {thumbnail ? (
-          React.cloneElement(thumbnail as React.ReactElement, {
-            className: `${(thumbnail as React.ReactElement).props.className || ''} shadow-md transition-transform hover:scale-105 rounded-lg overflow-hidden`,
+        {thumbnail && isValidElement(thumbnail) ? (
+          React.cloneElement(thumbnail, {
+            className: `${thumbnail.props.className || ''} shadow-md transition-transform hover:scale-105 rounded-lg overflow-hidden`,
           })
         ) : (
           <div className="w-24 aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
