@@ -122,7 +122,7 @@ export default function Dashboard() {
                 coinReward={item.coinReward}
                 thumbnail={
                   item.id === 'stats-poisson' ? (
-                    <img src="/gifs/poisson_cover.gif" alt="Poisson Distribution Cover" className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" />
+                    <video src="/gifs/poisson_cover.webm" className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" autoPlay loop muted playsInline />
                   ) : (
                     <div className="w-24 aspect-[3/4] bg-neutral-800 rounded-lg overflow-hidden" />
                   )
