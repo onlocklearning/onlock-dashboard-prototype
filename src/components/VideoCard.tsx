@@ -5,7 +5,6 @@ import React, { isValidElement } from 'react';
 interface VideoCardProps {
   title: string;
   subcategory: string;
-  coinReward: number;
   onWatchTry?: () => void;
   duration?: string;
   icon?: React.ReactNode;
@@ -13,7 +12,7 @@ interface VideoCardProps {
   buttonClassName?: string;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ title, subcategory, coinReward, onWatchTry, duration, icon, thumbnail, buttonClassName }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ title, subcategory, onWatchTry, duration, icon, thumbnail, buttonClassName }) => {
   return (
     <div className="flex items-center bg-black border-2 border-gray-700 rounded-xl shadow-md p-4 hover:border-yellow-400 hover:ring hover:ring-yellow-500/20 transition cursor-pointer w-full max-w-2xl mx-auto hover:scale-[1.005] transition-transform" onClick={onWatchTry}>
       {/* Thumbnail */}

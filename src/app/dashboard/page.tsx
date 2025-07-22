@@ -119,7 +119,6 @@ export default function Dashboard() {
                 key={item.id}
                 title={item.title}
                 subcategory={item.subject}
-                coinReward={item.coinReward}
                 thumbnail={
                   item.id === 'stats-poisson' ? (
                     <video src="/gifs/poisson_cover.webm" className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" autoPlay loop muted playsInline />
