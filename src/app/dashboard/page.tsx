@@ -7,8 +7,8 @@ import { lessons } from '../../data/lessons';
 
 const modeOptions = ['General', 'Exam Prep'];
 const subjectOptionsMap: Record<string, string[]> = {
-  General: ["Physics", "Biology", "Chemistry", "Coding"],
-  "Exam Prep": ["A-Level", "IB", "JEE", "SATs"],
+  General: ["statistics", "functions"],
+  "Exam Prep": ["A-Level", "AP", "IB", "SATs", "JEE"],
 };
 
 export default function Dashboard() {
@@ -100,7 +100,7 @@ export default function Dashboard() {
           {selectedMode && (
             <>
               <div className="mb-2 mt-3 text-sm text-gray-300 font-semibold flex items-center gap-2">
-                Pick Subject
+                {selectedMode === 'Exam Prep' ? 'Pick Level' : 'Pick Subject'}
               </div>
               <FilterBar
                 options={subjectOptionsMap[selectedMode]}
@@ -120,8 +120,13 @@ export default function Dashboard() {
                 title={item.title}
                 subcategory={item.subject}
                 coinReward={item.coinReward}
-                // Removed icon prop to eliminate the test tube emoji
-                thumbnail={<div className="w-24 aspect-[3/4] bg-neutral-800 rounded-lg overflow-hidden" />}
+                thumbnail={
+                  item.id === 'stats-poisson' ? (
+                    <img src="/gifs/poisson_cover.gif" alt="Poisson Distribution Cover" className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" />
+                  ) : (
+                    <div className="w-24 aspect-[3/4] bg-neutral-800 rounded-lg overflow-hidden" />
+                  )
+                }
                 buttonClassName="ring-1 ring-yellow-500/10 shadow-lg hover:scale-[1.01] transition-transform"
               />
             ))}
