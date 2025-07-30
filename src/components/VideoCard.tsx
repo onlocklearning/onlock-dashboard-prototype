@@ -2,6 +2,15 @@
 
 import React, { isValidElement } from 'react';
 
+function isImgOrVideoElement(
+  element: React.ReactElement
+): element is React.ReactElement<{ className?: string }> {
+  return (
+    isValidElement(element) &&
+    (element.type === 'img' || element.type === 'video' || element.type === 'div')
+  );
+}
+
 interface VideoCardProps {
   title: string;
   subcategory: string;
@@ -17,14 +26,16 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, subcategory, onWatchTry, d
     <div className="flex items-center bg-black border-2 border-gray-700 rounded-xl shadow-md p-4 hover:border-yellow-400 hover:ring hover:ring-yellow-500/20 transition cursor-pointer w-full max-w-2xl mx-auto hover:scale-[1.005] transition-transform" onClick={onWatchTry}>
       {/* Thumbnail */}
       <div className="mr-4 flex flex-col items-center">
-        {thumbnail && isValidElement(thumbnail) ? (
+        {thumbnail && isImgOrVideoElement(thumbnail) ? (
           React.cloneElement(thumbnail, {
             className: `${thumbnail.props.className || ''} shadow-md transition-transform hover:scale-105 rounded-lg overflow-hidden`,
           })
         ) : (
-          <div className="w-24 aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
-            <div className="w-full h-full flex items-center justify-center text-gray-400 text-2xl">🎥</div>
-          </div>
+          thumbnail || (
+            <div className="w-24 aspect-[3/4] bg-gradient-to-br from-neutral-800 to-neutral-700 rounded-lg overflow-hidden shadow-md transition-transform hover:scale-105">
+              <div className="w-full h-full flex items-center justify-center text-gray-400 text-2xl">🎥</div>
+            </div>
+          )
         )}
         {duration && <div className="text-xs text-gray-400 mt-2 flex items-center"><span className="mr-1">⏱</span>{duration}</div>}
       </div>
