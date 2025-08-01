@@ -15,7 +15,6 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 10,
-    videoSrc: '/gifs/test_1.mp4',
   },
   {
     id: 'stats-probability',
@@ -23,7 +22,6 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 9,
-    videoSrc: '/gifs/test2.mp4',
   },
   {
     id: 'stats-poisson',
@@ -39,7 +37,6 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'functions',
     coinReward: 10,
-    videoSrc: '/gifs/test3.mp4',
   },
   {
     id: 'function-graphs',
@@ -47,7 +44,6 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'functions',
     coinReward: 9,
-    videoSrc: '/gifs/test_1.mp4',
   },
   // Exam Prep mode lessons
   {
@@ -56,7 +52,6 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'A-Level',
     coinReward: 12,
-    videoSrc: '/gifs/test2.mp4',
   },
   {
     id: 'ap-calc-ab',
@@ -64,7 +59,6 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'AP',
     coinReward: 11,
-    videoSrc: '/gifs/test3.mp4',
   },
   // Additional lessons to fill out the dashboard
   {
@@ -73,7 +67,6 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'IB',
     coinReward: 13,
-    videoSrc: '/gifs/test_1.mp4',
   },
   {
     id: 'sat-math',
@@ -81,7 +74,6 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'SATs',
     coinReward: 8,
-    videoSrc: '/gifs/test2.mp4',
   },
   {
     id: 'jee-physics',
@@ -89,7 +81,6 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'JEE',
     coinReward: 15,
-    videoSrc: '/gifs/test3.mp4',
   },
   {
     id: 'stats-advanced',
@@ -97,7 +88,6 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 12,
-    videoSrc: '/gifs/test_1.mp4',
   },
   {
     id: 'functions-advanced',
@@ -105,6 +95,5 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'functions',
     coinReward: 11,
-    videoSrc: '/gifs/test2.mp4',
   },
 ]; 
