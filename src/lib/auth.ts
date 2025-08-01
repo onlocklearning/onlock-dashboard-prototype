@@ -1,38 +1,31 @@
 import NextAuth from "next-auth"
 import { NextAuthConfig } from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google"
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { PrismaClient } from "@prisma/client"
+
+const prisma = new PrismaClient()
 
 export const authConfig: NextAuthConfig = {
+  adapter: PrismaAdapter(prisma),
   providers: [
-    CredentialsProvider({
-      name: "credentials",
-      credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" }
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      authorization: {
+        params: {
+          prompt: "select_account",
+        },
       },
-      async authorize(credentials) {
-        // This is where you would typically validate against your database
-        // For now, we'll use a simple mock authentication
-        if (credentials?.email === "admin@onlock.com" && credentials?.password === "password123") {
-          return {
-            id: "1",
-            email: "admin@onlock.com",
-            name: "Admin User",
-            role: "admin"
-          }
-        }
-        return null
-      }
-    })
+    }),
   ],
   pages: {
     signIn: "/auth/signin",
-    signUp: "/auth/signup",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
       if (user) {
-        token.role = user.role
+        token.role = user.role || "user"
       }
       return token
     },
@@ -41,6 +34,10 @@ export const authConfig: NextAuthConfig = {
         session.user.role = token.role
       }
       return session
+    },
+    async signIn({ user, account, profile }) {
+      // The PrismaAdapter will automatically handle user creation/update
+      return true
     }
   },
   session: {

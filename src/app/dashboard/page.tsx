@@ -147,8 +147,8 @@ export default function Dashboard() {
                 title={item.title}
                 subcategory={item.subject}
                 thumbnail={
-                  item.id === 'stats-poisson' ? (
-                    <video src="/gifs/poisson_cover.webm" className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" autoPlay loop muted playsInline />
+                  item.videoSrc ? (
+                    <video src={item.videoSrc} className="w-24 aspect-[3/4] object-cover rounded-lg overflow-hidden" autoPlay loop muted playsInline />
                   ) : (
                     <div className="w-24 aspect-[3/4] bg-neutral-800 rounded-lg overflow-hidden" />
                   )

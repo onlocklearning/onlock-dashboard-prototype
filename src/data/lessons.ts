@@ -4,7 +4,7 @@ export interface Lesson {
   mode: string;
   subject: string;
   coinReward: number;
-  // ...other fields as needed
+  videoSrc?: string; // Add video source for course covers
 }
 
 export const lessons: Lesson[] = [
@@ -15,6 +15,7 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 10,
+    videoSrc: '/gifs/test_1.mp4',
   },
   {
     id: 'stats-probability',
@@ -22,6 +23,7 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 9,
+    videoSrc: '/gifs/test2.mp4',
   },
   {
     id: 'stats-poisson',
@@ -29,6 +31,7 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'statistics',
     coinReward: 10,
+    videoSrc: '/gifs/poisson_cover.webm',
   },
   {
     id: 'functions-basics',
@@ -36,6 +39,7 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'functions',
     coinReward: 10,
+    videoSrc: '/gifs/test3.mp4',
   },
   {
     id: 'function-graphs',
@@ -43,6 +47,7 @@ export const lessons: Lesson[] = [
     mode: 'General',
     subject: 'functions',
     coinReward: 9,
+    videoSrc: '/gifs/test_1.mp4',
   },
   // Exam Prep mode lessons
   {
@@ -51,6 +56,7 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'A-Level',
     coinReward: 12,
+    videoSrc: '/gifs/test2.mp4',
   },
   {
     id: 'ap-calc-ab',
@@ -58,5 +64,47 @@ export const lessons: Lesson[] = [
     mode: 'Exam Prep',
     subject: 'AP',
     coinReward: 11,
+    videoSrc: '/gifs/test3.mp4',
+  },
+  // Additional lessons to fill out the dashboard
+  {
+    id: 'ib-math-hl',
+    title: 'IB Math HL Integration',
+    mode: 'Exam Prep',
+    subject: 'IB',
+    coinReward: 13,
+    videoSrc: '/gifs/test_1.mp4',
+  },
+  {
+    id: 'sat-math',
+    title: 'SAT Math Problem Solving',
+    mode: 'Exam Prep',
+    subject: 'SATs',
+    coinReward: 8,
+    videoSrc: '/gifs/test2.mp4',
+  },
+  {
+    id: 'jee-physics',
+    title: 'JEE Physics Mechanics',
+    mode: 'Exam Prep',
+    subject: 'JEE',
+    coinReward: 15,
+    videoSrc: '/gifs/test3.mp4',
+  },
+  {
+    id: 'stats-advanced',
+    title: 'Advanced Statistical Methods',
+    mode: 'General',
+    subject: 'statistics',
+    coinReward: 12,
+    videoSrc: '/gifs/test_1.mp4',
+  },
+  {
+    id: 'functions-advanced',
+    title: 'Advanced Function Analysis',
+    mode: 'General',
+    subject: 'functions',
+    coinReward: 11,
+    videoSrc: '/gifs/test2.mp4',
   },
 ]; 
